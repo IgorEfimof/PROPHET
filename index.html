@@ -139,6 +139,15 @@
             background: linear-gradient(90deg, var(--accent-color), transparent);
         }
         
+        h3 {
+            color: var(--primary-color);
+            margin: 15px 0 10px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
         p {
             margin-bottom: 12px;
             text-align: justify;
@@ -203,6 +212,39 @@
             transform: scale(1.1);
         }
         
+        .att-section {
+            margin-bottom: 30px;
+        }
+        
+        .att-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .att-symbol {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+        
+        .att-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .att-god {
+            font-size: 1rem;
+            color: var(--dark-color);
+            font-style: italic;
+        }
+        
         .runes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
@@ -259,6 +301,93 @@
             color: var(--dark-color);
             position: relative;
             z-index: 1;
+        }
+        
+        .futhark-masters {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 215, 0, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid var(--accent-color);
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .futhark-masters::before {
+            content: "⚔";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--background);
+            color: var(--ornament-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 0 8px var(--ornament-color);
+        }
+        
+        .masters-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 3px rgba(212, 175, 55, 0.3);
+        }
+        
+        .masters-description {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .master-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 235, 215, 0.9));
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+        
+        .master-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .master-name {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .master-domain {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .master-description {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+            text-align: left;
         }
         
         .divination-options {
@@ -496,6 +625,43 @@
             display: inline-block;
             margin-top: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .modal-section {
+            margin-bottom: 15px;
+        }
+        
+        .modal-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+        
+        .parable {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            margin-top: 10px;
+        }
+        
+        .parable::before {
+            content: "“";
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 0;
+            margin-right: 5px;
+        }
+        
+        .parable::after {
+            content: "”";
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 0;
+            margin-left: 5px;
         }
         
         /* Стили для ввода даты рождения */
@@ -805,6 +971,11 @@
             border-bottom: 1px solid var(--secondary-color);
         }
         
+        body.dark-theme .master-card {
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.9), rgba(70, 70, 70, 0.9));
+            color: #e0e0e0;
+        }
+        
         body.full-moon-theme {
             --background: #2c003e;
             --text-color: #e0e0e0;
@@ -840,6 +1011,11 @@
         
         body.full-moon-theme .alphabet-table td {
             border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        body.full-moon-theme .master-card {
+            background: linear-gradient(135deg, rgba(80, 0, 110, 0.9), rgba(100, 0, 140, 0.9));
+            color: #e0e0e0;
         }
         
         body.new-moon-theme {
@@ -879,6 +1055,11 @@
             border-bottom: 1px solid var(--secondary-color);
         }
         
+        body.new-moon-theme .master-card {
+            background: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(60, 60, 60, 0.9));
+            color: #c0c0c0;
+        }
+        
         @media (max-width: 768px) {
             .translator-grid {
                 grid-template-columns: 1fr;
@@ -896,6 +1077,10 @@
             .alphabet-table th, 
             .alphabet-table td {
                 padding: 6px 4px;
+            }
+            
+            .masters-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -976,6 +1161,12 @@
             .alphabet-table {
                 min-width: 450px;
             }
+            
+            .att-header {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -1011,8 +1202,81 @@
             <h2>Старший Футарк</h2>
             <p>Старший Футарк состоит из 24 рун, разделенных на три атта (группы) по 8 рун в каждом. Каждая руна имеет свое название, символическое значение и энергетику.</p>
             
-            <div class="runes-grid" id="runesGrid">
-                <!-- Руны будут добавлены через JavaScript -->
+            <!-- Первый атт - Фрейя -->
+            <div class="att-section">
+                <div class="att-header">
+                    <div class="att-symbol">ᚠ</div>
+                    <div>
+                        <div class="att-title">Первый атт</div>
+                        <div class="att-god">Под покровительством Фрейи и Фрейра</div>
+                    </div>
+                </div>
+                <div class="runes-grid" id="firstAtt">
+                    <!-- Руны первого атта будут добавлены через JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Второй атт - Хеймдалль -->
+            <div class="att-section">
+                <div class="att-header">
+                    <div class="att-symbol">ᚺ</div>
+                    <div>
+                        <div class="att-title">Второй атт</div>
+                        <div class="att-god">Под покровительством Хеймдалля и Моди</div>
+                    </div>
+                </div>
+                <div class="runes-grid" id="secondAtt">
+                    <!-- Руны второго атта будут добавлены через JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Третий атт - Тюр -->
+            <div class="att-section">
+                <div class="att-header">
+                    <div class="att-symbol">ᛏ</div>
+                    <div>
+                        <div class="att-title">Третий атт</div>
+                        <div class="att-god">Под покровительством Тюра и Зиса</div>
+                    </div>
+                </div>
+                <div class="runes-grid" id="thirdAtt">
+                    <!-- Руны третьего атта будут добавлены через JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Описание хозяев Футарка -->
+            <div class="futhark-masters">
+                <div class="masters-title">Хозяева Старшего Футарка</div>
+                <div class="masters-description">Три атта Старшего Футарка находятся под покровительством могущественных богов скандинавского пантеона</div>
+                
+                <div class="masters-grid">
+                    <div class="master-card">
+                        <div class="master-name">Фрейя и Фрейр</div>
+                        <div class="master-domain">Боги плодородия и процветания</div>
+                        <div class="master-description">
+                            <p>Первый атт посвящен Фрейе и Фрейру - близнецам, богам плодородия, любви и процветания. Эти руны связаны с материальным миром, созиданием и жизненной энергией.</p>
+                            <p>Фрейя, владычица магии сейдр, научила Одина искусству рунической магии. Фрейр же дарует богатство и урожай.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="master-card">
+                        <div class="master-name">Хеймдалль и Моди</div>
+                        <div class="master-domain">Стражи и защитники</div>
+                        <div class="master-description">
+                            <p>Второй атт находится под покровительством Хеймдалля, стража богов, и Моди, бога воинской ярости. Эти руны связаны с защитой, конфликтами и преодолением препятствий.</p>
+                            <p>Хеймдалль, наделенный невероятными чувствами, охраняет мост Биврёст, соединяющий миры. Моди олицетворяет силу и решимость.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="master-card">
+                        <div class="master-name">Тюр и Зис</div>
+                        <div class="master-domain">Боги закона и порядка</div>
+                        <div class="master-description">
+                            <p>Третий атт посвящен Тюру, богу закона и справедливости, и Зису (асу, связанному с мудростью). Эти руны связаны с духовным развитием, судьбой и высшими силами.</p>
+                            <p>Тюр пожертвовал рукой, чтобы сковать волка Фенрира, демонстрируя верность и жертвенность. Зис олицетворяет мудрость и глубокое понимание.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -1115,20 +1379,31 @@
                 </div>
             </div>
             <div class="modal-rune-description">
-                <h4>Значение</h4>
-                <p id="modalRuneMeaning"></p>
+                <div class="modal-section">
+                    <h4>Значение</h4>
+                    <p id="modalRuneMeaning"></p>
+                </div>
                 
-                <h4>Описание</h4>
-                <p id="modalRuneDescription"></p>
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p id="modalRuneDescription"></p>
+                </div>
                 
-                <h4>Предназначение</h4>
-                <p id="modalRunePurpose"></p>
+                <div class="modal-section">
+                    <h4>Притча</h4>
+                    <div class="parable" id="modalRuneParable"></div>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Предназначение</h4>
+                    <p id="modalRunePurpose"></p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Данные о рунах Старшего Футарка
+        // Данные о рунах Старшего Футарка с притчами
         const runesData = [
             { 
                 symbol: "ᚠ", 
@@ -1136,6 +1411,7 @@
                 element: "Огонь",
                 meaning: "Скот, богатство, собственность, материальные блага", 
                 description: "Fehu - первая руна футарка, символизирующая движимое имущество, скот и материальные блага. Она связана с богиней Фрейей и представляет энергию созидания и накопления.",
+                parable: "Пастух, имевший много скота, был богат, но однажды его стадо разбежалось. Он понял, что настоящее богатство не в количестве, а в умении сохранять и приумножать.",
                 purpose: "Используется для привлечения богатства, защиты собственности, улучшения финансового положения и усиления личной энергии."
             },
             { 
@@ -1144,6 +1420,7 @@
                 element: "Земля",
                 meaning: "Зубр, дикая сила, здоровье, выносливость", 
                 description: "Uruz олицетворяет первобытную силу, здоровье и жизненную энергию. Эта руна связана с диким зубром - символом необузданной мощи природы.",
+                parable: "Охотник, преследовавший зубра, устал и хотел сдаться, но в момент отчаяния увидел, как зверь остановился перед пропастью. Сила не в скорости, а в выносливости и правильном выборе момента.",
                 purpose: "Применяется для укрепления здоровья, повышения жизненных сил, преодоления препятствий и восстановления после болезней."
             },
             { 
@@ -1152,6 +1429,7 @@
                 element: "Огонь",
                 meaning: "Великан, шип, защита, конфронтация", 
                 description: "Thurisaz - руна великанов, представляющая разрушительные силы и защитные барьеры. Она символизирует как опасность, так и мощную защиту от врагов.",
+                parable: "Путник, встретивший великана, испугался, но вместо бегства предложил ему помощь. Великан, тронутый добротой, стал его защитником. Иногда то, что кажется угрозой, может стать опорой.",
                 purpose: "Используется для создания защитных барьеров, преодоления сопротивления, принятия решений и усиления воли."
             },
             { 
@@ -1160,6 +1438,7 @@
                 element: "Воздух",
                 meaning: "Бог, уста, мудрость, общение, вдохновение", 
                 description: "Ansuz - руна богов, особенно Одина, покровителя мудрости и магии. Она представляет общение, вдохновение и божественные откровения.",
+                parable: "Мудрец, искавший истину, семь дней молчал, слушая шепот ветра. На восьмой день он заговорил, и его слова изменили судьбу целого народа. Мудрость приходит к тем, кто умеет слушать.",
                 purpose: "Применяется для улучшения коммуникации, получения мудрости, развития интуиции и привлечения вдохновения."
             },
             { 
@@ -1168,6 +1447,7 @@
                 element: "Воздух",
                 meaning: "Поездка, путь, путешествие, движение, ритм", 
                 description: "Raidho символизирует путешествие - как физическое, так и духовное. Она представляет движение, прогресс и правильный путь в жизни.",
+                parable: "Странник шел по дороге, постоянно сворачивая на тропинки, которые казались ему короче. В итоге он заблудился. Старец сказал ему: 'Прямой путь кажется длиннее, но он вернее ведет к цели'.",
                 purpose: "Используется для защиты в путешествиях, нахождения правильного пути, ускорения прогресса и гармонизации жизненных ритмов."
             },
             { 
@@ -1176,6 +1456,7 @@
                 element: "Огонь",
                 meaning: "Факел, огонь, знание, творчество, откровение", 
                 description: "Kenaz - руна факела, представляющая внутренний свет, знание и творческую энергию. Она символизирует контролируемый огонь преобразования.",
+                parable: "В пещере тьмы жил человек, боявшийся огня. Однажды искра упала на сухую траву, и он увидел, что вокруг него - сокровища. Знание подобно огню - может обжечь, но и осветить путь к сокровищам.",
                 purpose: "Применяется для усиления творческих способностей, получения знаний, ясновидения и преображения личности."
             },
             { 
@@ -1184,6 +1465,7 @@
                 element: "Воздух",
                 meaning: "Дар, партнерство, обмен, единство, щедрость", 
                 description: "Gebo символизирует дар и партнерство. Эта руна представляет равноправный обмен, союзы и гармоничные отношения между людьми.",
+                parable: "Два кузнеца обменялись мечами. Каждый думал, что получил лучшее, но когда пришла битва, их мечи скрестились и не смогли навредить друг другу. Истинный дар - тот, что приносит благо обеим сторонам.",
                 purpose: "Используется для укрепления партнерских отношений, привлечения щедрости, создания гармонии и заключения соглашений."
             },
             { 
@@ -1192,6 +1474,7 @@
                 element: "Огонь",
                 meaning: "Радость, удовольствие, гармония, благополучие", 
                 description: "Wunjo - руна радости и благополучия. Она символизирует счастье, удовлетворение и гармонию в личной и общественной жизни.",
+                parable: "Человек искал радость по всему свету, но везде находил лишь мимолетные удовольствия. Вернувшись домой, он увидел, как его дети смеются, и понял: радость живет в простых моментах бытия.",
                 purpose: "Применяется для привлечения радости, улучшения настроения, гармонизации отношений и достижения благополучия."
             },
             { 
@@ -1200,6 +1483,7 @@
                 element: "Вода",
                 meaning: "Град, разрушение, стихийные силы, кризис", 
                 description: "Hagalaz - руна града, представляющая разрушительные силы природы и неожиданные изменения. Она символизирует кризисы, которые ведут к трансформации.",
+                parable: "Град побил посевы, и крестьянин в отчаянии ушел из деревни. Вернувшись через год, он увидел, что на месте старых посевов выросли новые, более сильные растения. Разрушение - часто начало нового роста.",
                 purpose: "Используется для преодоления кризисов, защиты от стихийных бедствий, ускорения необходимых изменений и разрушения старого."
             },
             { 
@@ -1208,6 +1492,7 @@
                 element: "Огонь",
                 meaning: "Нужда, необходимость, сопротивление, вызов", 
                 description: "Nauthiz - руна нужды, символизирующая ограничения, трудности и необходимость. Она представляет вызовы, которые закаляют характер.",
+                parable: "Путник в пустыне из последних сил шел к оазису. Когда он добрался до воды, то понял: нужда заставила его найти силы, о которых он не подозревал. Ограничения открывают скрытые ресурсы.",
                 purpose: "Применяется для преодоления трудностей, развития терпения, усиления выносливости и нахождения решений в сложных ситуациях."
             },
             { 
@@ -1216,6 +1501,7 @@
                 element: "Лёд",
                 meaning: "Лед, застой, остановка, концентрация", 
                 description: "Isa - руна льда, представляющая застой, концентрацию и временную остановку. Она символизирует период ожидания и внутренней работы.",
+                parable: "Озеро замерзло, и рыбаки не могли ловить рыбу. Но один из них прорубил прорубь и увидел, что под льдом жизнь продолжается. Застой - это время для подготовки к новому движению.",
                 purpose: "Используется для замедления нежелательных процессов, концентрации внимания, медитации и временной защиты от внешних влияний."
             },
             { 
@@ -1224,6 +1510,7 @@
                 element: "Земля",
                 meaning: "Урожай, годовой цикл, вознаграждение, результат", 
                 description: "Jera - руна урожая, символизирующая цикличность времени и вознаграждение за труд. Она представляет естественные процессы и справедливые результаты.",
+                parable: "Фермер посадил зерно и каждый день раскапывал землю, чтобы проверить, не проросло ли оно. В итоге зерно погибло. Терпение и доверие естественным циклам - залог урожая.",
                 purpose: "Применяется для ускорения получения результатов, гармонизации циклов, привлечения справедливого вознаграждения и улучшения сельскохозяйственных дел."
             },
             { 
@@ -1232,6 +1519,7 @@
                 element: "Земля",
                 meaning: "Тис, защита, выносливость, стабильность", 
                 description: "Eihwaz - руна тиса, дерева смерти и возрождения. Она символизирует защиту, выносливость и связь между мирами.",
+                parable: "Тис растет медленно, но живет тысячелетия. Его древесина ядовита, но из него делают лучшие луки. То, что кажется препятствием, может стать твоей силой.",
                 purpose: "Используется для усиления защиты, развития выносливости, связи с предками и преодоления страха смерти."
             },
             { 
@@ -1240,6 +1528,7 @@
                 element: "Вода",
                 meaning: "Тайна, судьба, гадание, неожиданность", 
                 description: "Perthro - руна тайны и судьбы, связанная с гаданием и неожиданными поворотами жизни. Она символизирует скрытые возможности и кармические связи.",
+                parable: "Человек нашел странный камень с символами и спрятал его. Через годы этот камень спас ему жизнь, отразив стрелу. Судьба хранит секреты, которые открываются в нужный момент.",
                 purpose: "Применяется для гадания, раскрытия тайн, привлечения удачи в азартных играх и понимания кармических уроков."
             },
             { 
@@ -1248,6 +1537,7 @@
                 element: "Воздух",
                 meaning: "Лось, защита, бдительность, связь с богами", 
                 description: "Algiz - руна защиты и связи с богами, символизирующая бдительность и духовную защиту. Она представляет покровительство высших сил.",
+                parable: "Охотник преследовал лося, но тот всегда ускользал, поворачиваясь в самый неожиданный момент. Бдительность и связь с природой - лучшая защита.",
                 purpose: "Используется для усиления защиты, развития интуиции, установления связи с божественным и отражения негативных влияний."
             },
             { 
@@ -1256,6 +1546,7 @@
                 element: "Огонь",
                 meaning: "Солнце, победа, успех, жизненная сила", 
                 description: "Sowilo - руна солнца, представляющая жизненную силу, успех и победу. Она символизирует свет, который рассеивает тьму.",
+                parable: "В царстве тьмы люди забыли, что такое свет. Один ребенок верил в солнце и каждый день звал его. И однажды солнце взошло, принеся тепло и жизнь. Вера творит чудеса.",
                 purpose: "Применяется для привлечения успеха, усиления жизненной энергии, достижения победы и улучшения здоровья."
             },
             { 
@@ -1264,6 +1555,7 @@
                 element: "Воздух",
                 meaning: "Бог Тюр, справедливость, sacrifice, лидерство", 
                 description: "Tiwaz - руна бога Тюра, символизирующая справедливость, жертвенность и лидерство. Она представляет принцип порядка и закона.",
+                parable: "Тюр пожертвовал рукой, чтобы сковать волка Фенрира и спасти богов. Иногда ради общего блага нужно принести личную жертву.",
                 purpose: "Используется для достижения справедливости, укрепления лидерских качеств, победы в судебных делах и развития мужества."
             },
             { 
@@ -1272,6 +1564,7 @@
                 element: "Земля",
                 meaning: "Береза, рост, возрождение, плодородие", 
                 description: "Berkana - руна березы, символизирующая рост, плодородие и новые начинания. Она представляет материнскую энергию и процессы созидания.",
+                parable: "В выжженной земле осталась одна береза. Под ее сенью выросли новые деревья, и пустыня превратилась в лес. Небольшое начало может дать жизнь великому.",
                 purpose: "Применяется для стимулирования роста, улучшения семейных отношений, поддержки беременности и начала новых проектов."
             },
             { 
@@ -1280,6 +1573,7 @@
                 element: "Земля",
                 meaning: "Лошадь, движение, прогресс, партнерство", 
                 description: "Ehwaz - руна лошади, символизирующая движение, прогресс и партнерство. Она представляет гармоничное сотрудничество и поступательное развитие.",
+                parable: "Всадник и лошадь сначала не понимали друг друга, но со временем научились двигаться как одно целое. Истинный прогресс рождается в гармонии и взаимопонимании.",
                 purpose: "Используется для ускорения прогресса, улучшения партнерских отношений, облегчения путешествий и гармонизации любых процессов."
             },
             { 
@@ -1288,6 +1582,7 @@
                 element: "Воздух",
                 meaning: "Человек, общество, самость, разум", 
                 description: "Mannaz - руна человека, символизирующая человечество, разум и социальные связи. Она представляет как индивидуальность, так и коллективное сознание.",
+                parable: "Человек, живший в одиночестве, думал, что самодостаточен. Но когда заболел, понял, что нуждается в других. Мы - часть целого, и в этом наша сила.",
                 purpose: "Применяется для улучшения социальных связей, развития интеллекта, самопознания и гармонизации отношений в коллективе."
             },
             { 
@@ -1296,6 +1591,7 @@
                 element: "Вода",
                 meaning: "Вода, поток, интуиция, подсознание", 
                 description: "Laguz - руна воды, символизирующая поток жизни, интуицию и подсознание. Она представляет эмоциональную сферу и глубинные процессы психики.",
+                parable: "Рыбак плыл против течения и устал. Развернув лодку по течению, он быстро добрался до цели. Иногда нужно довериться потоку жизни, а не бороться с ним.",
                 purpose: "Используется для развития интуиции, усиления эмоциональной чувствительности, работы с подсознанием и привлечения вдохновения."
             },
             { 
@@ -1304,6 +1600,7 @@
                 element: "Земля",
                 meaning: "Бог Инг, внутренний рост, потенциальная энергия", 
                 description: "Ingwaz - руна бога Ингви, символизирующая внутренний рост и потенциальную энергетику. Она представляет период созревания и скрытого развития.",
+                parable: "Зерно, лежащее в земле, кажется мертвым, но внутри него идет невидимая работа. Когда приходит время, оно прорастает с невероятной силой. Наберись терпения - твое время придет.",
                 purpose: "Применяется для стимулирования внутреннего роста, накопления энергии, завершения проектов и улучшения мужской фертильности."
             },
             { 
@@ -1312,6 +1609,7 @@
                 element: "Земля",
                 meaning: "Наследие, собственность, дом, род", 
                 description: "Othala - руна наследия, символизирующая род, дом и наследственную собственность. Она представляет духовные и материальные традиции предков.",
+                parable: "Старый дом стоял заброшенным, но когда в него вернулся потомок основателя, стены словно ожили, напоминая о славном прошлом. Настоящее богатство - в связи с корнями.",
                 purpose: "Используется для защиты семьи и дома, укрепления родовых связей, получения наследства и сохранения традиций."
             },
             { 
@@ -1320,6 +1618,7 @@
                 element: "Огонь",
                 meaning: "День, прорыв, трансформация, осознание", 
                 description: "Dagaz - руна дня, символизирующая прорыв, трансформацию и осознание. Она представляет момент озарения и коренных изменений.",
+                parable: "Человек долго блуждал в темноте, и когда уже потерял надежду, увидел первый луч солнца. Иногда прорыв происходит именно в момент наибольшего отчаяния.",
                 purpose: "Применяется для осуществления прорывов, духовных преобразований, достижения ясности и позитивных изменений в жизни."
             }
         ];
@@ -1352,7 +1651,9 @@
         };
 
         // Элементы DOM
-        const runesGrid = document.getElementById('runesGrid');
+        const firstAtt = document.getElementById('firstAtt');
+        const secondAtt = document.getElementById('secondAtt');
+        const thirdAtt = document.getElementById('thirdAtt');
         const oneRuneBtn = document.getElementById('oneRune');
         const threeRunesBtn = document.getElementById('threeRunes');
         const destinyRunesBtn = document.getElementById('destinyRunes');
@@ -1367,6 +1668,7 @@
         const modalRuneElement = document.getElementById('modalRuneElement');
         const modalRuneMeaning = document.getElementById('modalRuneMeaning');
         const modalRuneDescription = document.getElementById('modalRuneDescription');
+        const modalRuneParable = document.getElementById('modalRuneParable');
         const modalRunePurpose = document.getElementById('modalRunePurpose');
         const dateInput = document.getElementById('dateInput');
         const birthDay = document.getElementById('birthDay');
@@ -1398,19 +1700,42 @@
         let selectedLayout = 1; // 1, 3 или 4 (предназначение)
         let translationDirection = 'toRunes'; // 'toRunes' или 'fromRunes'
 
-        // Инициализация - отображение всех рун
+        // Инициализация - отображение рун по аттам
         function initializeRunesGrid() {
-            runesGrid.innerHTML = '';
-            runesData.forEach((rune, index) => {
-                const runeElement = document.createElement('div');
-                runeElement.className = 'rune-item';
-                runeElement.innerHTML = `
-                    <div class="rune-symbol">${rune.symbol}</div>
-                    <div class="rune-name">${rune.name}</div>
-                `;
-                runeElement.addEventListener('click', () => showRuneModal(index));
-                runesGrid.appendChild(runeElement);
-            });
+            firstAtt.innerHTML = '';
+            secondAtt.innerHTML = '';
+            thirdAtt.innerHTML = '';
+            
+            // Первые 8 рун - первый атт
+            for (let i = 0; i < 8; i++) {
+                const runeElement = createRuneElement(i);
+                firstAtt.appendChild(runeElement);
+            }
+            
+            // Следующие 8 рун - второй атт
+            for (let i = 8; i < 16; i++) {
+                const runeElement = createRuneElement(i);
+                secondAtt.appendChild(runeElement);
+            }
+            
+            // Последние 8 рун - третий атт
+            for (let i = 16; i < 24; i++) {
+                const runeElement = createRuneElement(i);
+                thirdAtt.appendChild(runeElement);
+            }
+        }
+
+        // Создание элемента руны
+        function createRuneElement(index) {
+            const rune = runesData[index];
+            const runeElement = document.createElement('div');
+            runeElement.className = 'rune-item';
+            runeElement.innerHTML = `
+                <div class="rune-symbol">${rune.symbol}</div>
+                <div class="rune-name">${rune.name}</div>
+            `;
+            runeElement.addEventListener('click', () => showRuneModal(index));
+            return runeElement;
         }
 
         // Инициализация таблицы алфавита
@@ -1478,6 +1803,7 @@
             modalRuneElement.textContent = rune.element;
             modalRuneMeaning.textContent = rune.meaning;
             modalRuneDescription.textContent = rune.description;
+            modalRuneParable.textContent = rune.parable;
             modalRunePurpose.textContent = rune.purpose;
             
             runeModal.style.display = 'flex';
