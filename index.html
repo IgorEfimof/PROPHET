@@ -2,13 +2,12 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/icon221.png">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="RGSF">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Гадание на рунах Старшего Футарка</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #D4AF37;
@@ -27,6 +26,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Georgia', serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            touch-action: manipulation;
         }
         
         body {
@@ -689,14 +693,18 @@
             color: white;
         }
         
-        .alphabet-table {
+        .alphabet-container {
             margin-top: 20px;
+            overflow-x: auto;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .alphabet-table {
             width: 100%;
             border-collapse: collapse;
             background: rgba(255, 255, 255, 0.7);
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            min-width: 600px;
         }
         
         .alphabet-table th {
@@ -704,6 +712,8 @@
             color: white;
             padding: 10px;
             text-align: center;
+            position: sticky;
+            left: 0;
         }
         
         .alphabet-table td {
@@ -862,10 +872,16 @@
             
             .alphabet-table {
                 font-size: 0.8rem;
+                min-width: 500px;
             }
             
             .rune-cell {
                 font-size: 1.2rem;
+            }
+            
+            .alphabet-table th, 
+            .alphabet-table td {
+                padding: 6px 4px;
             }
         }
         
@@ -942,6 +958,10 @@
                 width: 100%;
                 max-width: 200px;
             }
+            
+            .alphabet-table {
+                min-width: 450px;
+            }
         }
     </style>
 </head>
@@ -953,16 +973,16 @@
             
             <div class="theme-selector">
                 <div class="theme-btn active" id="themeSun" title="Дневной режим">
-                    <i class="fas fa-sun" style="color: #FFA500;"></i>
+                    <span style="color: #FFA500;">☀</span>
                 </div>
                 <div class="theme-btn" id="themeMoon" title="Ночной режим">
-                    <i class="fas fa-moon" style="color: #4B0082;"></i>
+                    <span style="color: #4B0082;">🌙</span>
                 </div>
                 <div class="theme-btn" id="themeFullMoon" title="Режим полной луны">
-                    <i class="fas fa-circle" style="color: #F5F5DC;"></i>
+                    <span style="color: #F5F5DC;">●</span>
                 </div>
                 <div class="theme-btn" id="themeNewMoon" title="Режим новой луны">
-                    <i class="far fa-circle" style="color: #2F4F4F;"></i>
+                    <span style="color: #2F4F4F;">○</span>
                 </div>
             </div>
         </header>
@@ -1023,14 +1043,14 @@
                     <div class="translator-label">
                         <span id="inputLabel">Русский текст</span>
                         <button class="translator-btn paste-btn" id="pasteText">
-                            <i class="fas fa-paste"></i> Вставить
+                            📋 Вставить
                         </button>
                     </div>
                     <textarea class="translator-textarea" id="inputText" placeholder="Введите текст для перевода..."></textarea>
                     <div class="translator-buttons">
                         <button class="translator-btn" id="translateBtn">Перевести</button>
                         <button class="translator-btn copy-btn" id="copyInput">
-                            <i class="fas fa-copy"></i> Копировать
+                            📑 Копировать
                         </button>
                     </div>
                 </div>
@@ -1039,25 +1059,27 @@
                     <div class="translator-label">
                         <span id="outputLabel">Рунический текст</span>
                         <button class="translator-btn paste-btn" id="pasteRunes">
-                            <i class="fas fa-paste"></i> Вставить
+                            📋 Вставить
                         </button>
                     </div>
                     <textarea class="translator-textarea" id="outputText" placeholder="Результат перевода..." readonly></textarea>
                     <div class="translator-buttons">
                         <button class="translator-btn copy-btn" id="copyOutput">
-                            <i class="fas fa-copy"></i> Копировать
+                            📑 Копировать
                         </button>
                         <button class="translator-btn" id="clearAll">
-                            <i class="fas fa-broom"></i> Очистить
+                            🧹 Очистить
                         </button>
                     </div>
                 </div>
             </div>
             
             <h3>Таблица соответствия рун и букв</h3>
-            <table class="alphabet-table" id="alphabetTable">
-                <!-- Таблица будет заполнена через JavaScript -->
-            </table>
+            <div class="alphabet-container">
+                <table class="alphabet-table" id="alphabetTable">
+                    <!-- Таблица будет заполнена через JavaScript -->
+                </table>
+            </div>
         </section>
         
         <footer>
@@ -1213,7 +1235,7 @@
                 purpose: "Используется для усиления защиты, развития интуиции, установления связи с божественным и отражения негативных влияний."
             },
             { 
-                symbol: "ᛊ", 
+                symbol: "ᛋ", 
                 name: "Sowilo", 
                 element: "Огонь",
                 meaning: "Солнце, победа, успех, жизненная сила", 
@@ -1286,12 +1308,12 @@
             }
         ];
 
-        // Соответствие русских букв рунам
+        // Соответствие русских букв рунам (мягкий и твердый знак убраны)
         const russianToRunes = {
             'а': 'ᚨ', 'б': 'ᛒ', 'в': 'ᚹ', 'г': 'ᚷ', 'д': 'ᛞ',
             'е': 'ᛇ', 'ё': 'ᛇ', 'ж': 'ᛃ', 'з': 'ᛉ', 'и': 'ᛁ',
             'й': 'ᛁ', 'к': 'ᚲ', 'л': 'ᛚ', 'м': 'ᛗ', 'н': 'ᚾ',
-            'о': 'ᛟ', 'п': 'ᛈ', 'р': 'ᚱ', 'с': 'ᛊ', 'т': 'ᛏ',
+            'о': 'ᛟ', 'п': 'ᛈ', 'р': 'ᚱ', 'с': 'ᛋ', 'т': 'ᛏ',
             'у': 'ᚢ', 'ф': 'ᚠ', 'х': 'ᚺ', 'ц': 'ᛏ', 'ч': 'ᚲ',
             'ш': 'ᚺ', 'щ': 'ᚲ', 'ъ': '', 'ы': 'ᛁ', 'ь': '',
             'э': 'ᛇ', 'ю': 'ᚢ', 'я': 'ᚨ',
@@ -1306,7 +1328,7 @@
             'ᚨ': 'а', 'ᛒ': 'б', 'ᚹ': 'в', 'ᚷ': 'г', 'ᛞ': 'д',
             'ᛇ': 'е', 'ᛃ': 'ж', 'ᛉ': 'з', 'ᛁ': 'и', 'ᚲ': 'к',
             'ᛚ': 'л', 'ᛗ': 'м', 'ᚾ': 'н', 'ᛟ': 'о', 'ᛈ': 'п',
-            'ᚱ': 'р', 'ᛊ': 'с', 'ᛏ': 'т', 'ᚢ': 'у', 'ᚠ': 'ф',
+            'ᚱ': 'р', 'ᛋ': 'с', 'ᛏ': 'т', 'ᚢ': 'у', 'ᚠ': 'ф',
             'ᚺ': 'х', ' ': ' ', '.': '.', ',': ',', '!': '!', 
             '?': '?', ':': ':', ';': ';', '-': '-', '"': '"', 
             "'": "'", '0': '0', '1': '1', '2': '2', '3': '3', 
