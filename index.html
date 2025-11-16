@@ -2054,6 +2054,70 @@
             ];
         }
 
+        // Функция для генерации объединенной притчи из трех рун
+        function generateCombinedParable(runesArray) {
+            const soulRune = runesArray[0];
+            const fateRune = runesArray[1];
+            const callingRune = runesArray[2];
+            
+            // Создаем уникальную историю на основе трех притч
+            return `В начале вашего пути ${soulRune.parable.toLowerCase()} Это стало основой вашей души. Затем судьба преподнесла вам урок: ${fateRune.parable.toLowerCase()} Этот опыт закалил ваш характер и научил важным истинам. И теперь ваше призвание ведет вас к тому, что ${callingRune.parable.toLowerCase()} Эта финальная мудрость показывает направление, в котором вам следует двигаться, чтобы исполнить свое предназначение.`;
+        }
+
+        // Функция для генерации описания формулы предназначения
+        function generateDestinyDescription(runesArray, elements) {
+            const soulRune = runesArray[0];
+            const fateRune = runesArray[1];
+            const callingRune = runesArray[2];
+            
+            let description = `<p><strong>Расшифровка формулы:</strong> ${soulRune.name} (${soulRune.element}) - ${fateRune.name} (${fateRune.element}) - ${callingRune.name} (${callingRune.element})</p>`;
+            
+            description += `<p>Эта уникальная комбинация рун раскрывает ваше истинное предназначение. `;
+            
+            // Определяем доминирующую стихию
+            let dominantElement = '';
+            let maxCount = 0;
+            for (const element in elements) {
+                if (elements[element] > maxCount) {
+                    maxCount = elements[element];
+                    dominantElement = element;
+                }
+            }
+            
+            // Добавляем интерпретацию на основе доминирующей стихии
+            switch(dominantElement) {
+                case 'Огонь':
+                    description += `Преобладание стихии Огня указывает на вашу активную, энергичную природу. Ваше предназначение связано с лидерством, творчеством и преобразованием окружающего мира.`;
+                    break;
+                case 'Земля':
+                    description += `Преобладание стихии Земли говорит о вашей практичности и стабильности. Ваше предназначение связано с созданием прочного фундамента, заботой о других и материальным воплощением идей.`;
+                    break;
+                case 'Воздух':
+                    description += `Преобладание стихии Воздуха указывает на ваш интеллект и коммуникативные способности. Ваше предназначение связано с распространением знаний, установлением связей и интеллектуальным творчеством.`;
+                    break;
+                case 'Вода':
+                    description += `Преобладание стихии Воды говорит о вашей эмоциональной глубине и интуиции. Ваше предназначение связано с исцелением, помощью другим и работой с подсознательными процессами.`;
+                    break;
+                case 'Лёд':
+                    description += `Наличие стихии Льда указывает на вашу способность к концентрации и терпению. Ваше предназначение требует периода подготовки и внутренней работы перед реализацией.`;
+                    break;
+                default:
+                    description += `Гармоничное сочетание различных стихий указывает на разносторонность вашей натуры. Ваше предназначение охватывает несколько сфер жизни.`;
+            }
+            
+            description += `</p>`;
+            
+            // Добавляем индивидуальные значения рун
+            description += `<p><strong>Значение рун в формуле:</strong></p>`;
+            description += `<ul>`;
+            description += `<li><strong>${soulRune.name}</strong> (Душа): ${soulRune.meaning}. Эта руна отражает вашу внутреннюю сущность и духовные потребности.</li>`;
+            description += `<li><strong>${fateRune.name}</strong> (Судьба): ${fateRune.meaning}. Эта руна показывает кармические задачи и уроки, которые вам предстоит пройти.</li>`;
+            description += `<li><strong>${callingRune.name}</strong> (Призвание): ${callingRune.meaning}. Эта руна указывает на ваше истинное призвание и область наибольшей реализации.</li>`;
+            description += `</ul>`;
+            
+            return description;
+        }
+
         // Функция для проведения гадания
         function castRunes() {
             // Скрываем результат предыдущего гадания
@@ -2160,56 +2224,30 @@
                 elementCount[element] = (elementCount[element] || 0) + 1;
             });
             
-            // Определяем доминирующую стихию
-            let dominantElement = '';
-            let maxCount = 0;
-            for (const element in elementCount) {
-                if (elementCount[element] > maxCount) {
-                    maxCount = elementCount[element];
-                    dominantElement = element;
-                }
-            }
-            
-            // Генерируем описание на основе комбинации рун и стихий
-            let description = `<p><strong>Расшифровка формулы:</strong> ${runesArray[0].name} (${runesArray[0].element}) - ${runesArray[1].name} (${runesArray[1].element}) - ${runesArray[2].name} (${runesArray[2].element})</p>`;
-            
-            description += `<p>Эта уникальная комбинация рун раскрывает ваше истинное предназначение. `;
-            
-            // Добавляем интерпретацию на основе доминирующей стихии
-            switch(dominantElement) {
-                case 'Огонь':
-                    description += `Преобладание стихии Огня указывает на вашу активную, энергичную природу. Ваше предназначение связано с лидерством, творчеством и преобразованием окружающего мира.`;
-                    break;
-                case 'Земля':
-                    description += `Преобладание стихии Земли говорит о вашей практичности и стабильности. Ваше предназначение связано с созданием прочного фундамента, заботой о других и материальным воплощением идей.`;
-                    break;
-                case 'Воздух':
-                    description += `Преобладание стихии Воздуха указывает на ваш интеллект и коммуникативные способности. Ваше предназначение связано с распространением знаний, установлением связей и интеллектуальным творчеством.`;
-                    break;
-                case 'Вода':
-                    description += `Преобладание стихии Воды говорит о вашей эмоциональной глубине и интуиции. Ваше предназначение связано с исцелением, помощью другим и работой с подсознательными процессами.`;
-                    break;
-                case 'Лёд':
-                    description += `Наличие стихии Льда указывает на вашу способность к концентрации и терпению. Ваше предназначение требует периода подготовки и внутренней работы перед реализацией.`;
-                    break;
-                default:
-                    description += `Гармоничное сочетание различных стихий указывает на разносторонность вашей натуры. Ваше предназначение охватывает несколько сфер жизни.`;
-            }
-            
-            description += `</p>`;
-            
-            // Добавляем индивидуальные значения рун
-            description += `<p><strong>Значение рун в формуле:</strong></p>`;
-            description += `<ul>`;
-            description += `<li><strong>${runesArray[0].name}</strong> (Душа): ${runesArray[0].meaning}. Эта руна отражает вашу внутреннюю сущность и духовные потребности.</li>`;
-            description += `<li><strong>${runesArray[1].name}</strong> (Судьба): ${runesArray[1].meaning}. Эта руна показывает кармические задачи и уроки, которые вам предстоит пройти.</li>`;
-            description += `<li><strong>${runesArray[2].name}</strong> (Призвание): ${runesArray[2].meaning}. Эта руна указывает на ваше истинное призвание и область наибольшей реализации.</li>`;
-            description += `</ul>`;
-            
-            description += `<p><em>Помните, что руническая формула - это потенциал, а не приговор. Вы всегда можете развивать свои сильные стороны и работать над слабыми.</em></p>`;
-            
+            // Генерируем описание
+            const description = generateDestinyDescription(runesArray, elementCount);
             formulaDescription.innerHTML = description;
             interpretation.appendChild(formulaDescription);
+            
+            // Добавляем объединенную притчу
+            const combinedParable = generateCombinedParable(runesArray);
+            const combinedParableElement = document.createElement('div');
+            combinedParableElement.className = 'combined-story';
+            combinedParableElement.innerHTML = `
+                <h4>Сакральная притча вашего предназначения</h4>
+                <div class="parable">${combinedParable}</div>
+                <p><em>Эта история, сотканная из мудрости трех рун, раскрывает глубинный смысл вашего жизненного пути. Внимательно прислушайтесь к ее посланию — оно может указать направление для вашего дальнейшего развития.</em></p>
+            `;
+            interpretation.appendChild(combinedParableElement);
+            
+            // Добавляем заключительные мысли
+            const finalThoughts = document.createElement('div');
+            finalThoughts.className = 'formula-description';
+            finalThoughts.innerHTML = `
+                <p><strong>Заключение:</strong> Помните, что руническая формула - это потенциал, а не приговор. Вы всегда можете развивать свои сильные стороны и работать над слабыми. Эта комбинация рун показывает ваши врожденные качества и направление, в котором вам стоит двигаться для наибольшей реализации.</p>
+                <p>Используйте эту мудрость как компас, а не как карту с жестким маршрутом. Ваша свободная воля всегда остается главным инструментом формирования собственной судьбы.</p>
+            `;
+            interpretation.appendChild(finalThoughts);
         }
 
         // Функция для отображения толкования с притчами
