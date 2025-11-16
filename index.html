@@ -551,6 +551,56 @@
             text-shadow: 0 0 3px rgba(212, 175, 55, 0.3);
         }
         
+        /* Стили для притч в результатах гадания */
+        .interpretation .parable {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            margin-top: 10px;
+            position: relative;
+        }
+        
+        .interpretation .parable::before {
+            content: "“";
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 0;
+            margin-right: 5px;
+        }
+        
+        .interpretation .parable::after {
+            content: "”";
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 0;
+            margin-left: 5px;
+        }
+        
+        .interpretation .parable-section h5 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .combined-story {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .combined-story h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .combined-story p {
+            margin-bottom: 10px;
+        }
+        
         /* Модальное окно для описания руны */
         .modal {
             display: none;
@@ -2162,7 +2212,7 @@
             interpretation.appendChild(formulaDescription);
         }
 
-        // Функция для отображения толкования
+        // Функция для отображения толкования с притчами
         function displayInterpretation(runesArray) {
             interpretation.innerHTML = '';
             
@@ -2171,28 +2221,54 @@
                 interpretation.innerHTML = `
                     <h3>${rune.name} - ${rune.symbol}</h3>
                     <p><strong>Значение:</strong> ${rune.meaning}</p>
-                    <p>Эта руна указывает на основную энергию или тему вашего вопроса. Она может символизировать вызов, возможность или состояние, на которое вам стоит обратить внимание.</p>
+                    <p>${rune.description}</p>
+                    <div class="parable-section">
+                        <h4>Притча этой руны:</h4>
+                        <div class="parable">${rune.parable}</div>
+                    </div>
                     <p><strong>Стихия:</strong> ${rune.element}</p>
+                    <p><em>Эта руна указывает на основную энергию или тему вашего вопроса. Она может символизировать вызов, возможность или состояние, на которое вам стоит обратить внимание.</em></p>
                 `;
             } else if (selectedLayout === 3) {
                 interpretation.innerHTML = `
                     <h3>Толкование расклада из трех рун</h3>
                     <div class="rune-interpretation">
                         <h4>${runesArray[0].name} - Прошлое / Ситуация</h4>
-                        <p>${runesArray[0].meaning}. Эта руна отражает энергию или обстоятельства, которые привели к текущей ситуации.</p>
+                        <p><strong>Значение:</strong> ${runesArray[0].meaning}</p>
+                        <p>${runesArray[0].description}</p>
+                        <div class="parable-section">
+                            <h5>Притча прошлого:</h5>
+                            <div class="parable">${runesArray[0].parable}</div>
+                        </div>
                         <p><strong>Стихия:</strong> ${runesArray[0].element}</p>
                     </div>
                     <div class="rune-interpretation">
                         <h4>${runesArray[1].name} - Настоящее / Вызов</h4>
-                        <p>${runesArray[1].meaning}. Эта руна показывает текущую энергию или вызов, с которым вы сталкиваетесь.</p>
+                        <p><strong>Значение:</strong> ${runesArray[1].meaning}</p>
+                        <p>${runesArray[1].description}</p>
+                        <div class="parable-section">
+                            <h5>Притча настоящего:</h5>
+                            <div class="parable">${runesArray[1].parable}</div>
+                        </div>
                         <p><strong>Стихия:</strong> ${runesArray[1].element}</p>
                     </div>
                     <div class="rune-interpretation">
                         <h4>${runesArray[2].name} - Будущее / Результат</h4>
-                        <p>${runesArray[2].meaning}. Эта руна указывает на возможный результат или направление развития ситуации.</p>
+                        <p><strong>Значение:</strong> ${runesArray[2].meaning}</p>
+                        <p>${runesArray[2].description}</p>
+                        <div class="parable-section">
+                            <h5>Притча будущего:</h5>
+                            <div class="parable">${runesArray[2].parable}</div>
+                        </div>
                         <p><strong>Стихия:</strong> ${runesArray[2].element}</p>
                     </div>
-                    <p><em>Помните, что будущее не предопределено, и руны показывают лишь тенденции, основанные на текущих энергиях и ваших действиях.</em></p>
+                    <div class="combined-story">
+                        <h4>Общая история, которую рассказывают руны:</h4>
+                        <p><strong>Прошлое:</strong> ${runesArray[0].parable}</p>
+                        <p><strong>Настоящее:</strong> ${runesArray[1].parable}</p>
+                        <p><strong>Будущее:</strong> ${runesArray[2].parable}</p>
+                        <p><em>Эта последовательность притч показывает, как события прошлого влияют на настоящее и формируют будущее. Обратите внимание на взаимосвязь между этими историями - они могут раскрыть более глубокий смысл вашего пути.</em></p>
+                    </div>
                 `;
             }
         }
