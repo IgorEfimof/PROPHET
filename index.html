@@ -948,6 +948,216 @@
             color: var(--primary-color);
         }
         
+        /* Стили для создания амулета */
+        .amulet-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .amulet-desires {
+            margin-bottom: 20px;
+        }
+        
+        .amulet-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            margin-bottom: 15px;
+        }
+        
+        .amulet-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+        
+        .amulet-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .amulet-option {
+            padding: 8px 15px;
+            background: var(--light-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .amulet-option.active {
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .amulet-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            border-radius: 8px;
+            display: none;
+            border: 1px solid var(--accent-color);
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .amulet-result::before {
+            content: "✦";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: var(--background);
+            color: var(--ornament-color);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            box-shadow: 0 0 5px var(--ornament-color);
+        }
+        
+        .amulet-formula {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .amulet-rune {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 215, 0, 0.1));
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            width: 100px;
+            position: relative;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .amulet-rune-symbol {
+            font-size: 2.5rem;
+            font-family: 'Segoe UI Symbol', sans-serif;
+            color: var(--primary-color);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            margin-bottom: 5px;
+        }
+        
+        .amulet-rune-name {
+            font-weight: bold;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+        
+        .amulet-description {
+            margin-bottom: 20px;
+        }
+        
+        .amulet-section-title {
+            color: var(--primary-color);
+            margin: 15px 0 10px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .amulet-advice {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            margin-top: 10px;
+            position: relative;
+        }
+        
+        .amulet-advice::before {
+            content: "“";
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 0;
+            margin-right: 5px;
+        }
+        
+        .amulet-advice::after {
+            content: "”";
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 0;
+            margin-left: 5px;
+        }
+        
+        .amulet-activation {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .amulet-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .amulet-option-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 235, 215, 0.9));
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--accent-color);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .amulet-option-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .amulet-option-card.selected {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.15));
+            border-color: var(--primary-color);
+        }
+        
+        .amulet-option-title {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .amulet-option-runes {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .amulet-option-rune {
+            font-size: 1.5rem;
+            font-family: 'Segoe UI Symbol', sans-serif;
+            color: var(--primary-color);
+        }
+        
         footer {
             text-align: center;
             margin-top: 30px;
@@ -1026,6 +1236,16 @@
             color: #e0e0e0;
         }
         
+        body.dark-theme .amulet-textarea {
+            background: rgba(60, 60, 60, 0.8);
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .amulet-option-card {
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.9), rgba(70, 70, 70, 0.9));
+            color: #e0e0e0;
+        }
+        
         body.full-moon-theme {
             --background: #2c003e;
             --text-color: #e0e0e0;
@@ -1064,6 +1284,16 @@
         }
         
         body.full-moon-theme .master-card {
+            background: linear-gradient(135deg, rgba(80, 0, 110, 0.9), rgba(100, 0, 140, 0.9));
+            color: #e0e0e0;
+        }
+        
+        body.full-moon-theme .amulet-textarea {
+            background: rgba(80, 0, 110, 0.8);
+            color: #e0e0e0;
+        }
+        
+        body.full-moon-theme .amulet-option-card {
             background: linear-gradient(135deg, rgba(80, 0, 110, 0.9), rgba(100, 0, 140, 0.9));
             color: #e0e0e0;
         }
@@ -1110,6 +1340,16 @@
             color: #c0c0c0;
         }
         
+        body.new-moon-theme .amulet-textarea {
+            background: rgba(40, 40, 40, 0.8);
+            color: #c0c0c0;
+        }
+        
+        body.new-moon-theme .amulet-option-card {
+            background: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(60, 60, 60, 0.9));
+            color: #c0c0c0;
+        }
+        
         @media (max-width: 768px) {
             .translator-grid {
                 grid-template-columns: 1fr;
@@ -1130,6 +1370,10 @@
             }
             
             .masters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .amulet-options-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1216,6 +1460,29 @@
                 flex-direction: column;
                 gap: 5px;
                 text-align: center;
+            }
+            
+            .amulet-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .amulet-option {
+                width: 100%;
+                max-width: 150px;
+            }
+            
+            .amulet-formula {
+                gap: 10px;
+            }
+            
+            .amulet-rune {
+                width: 80px;
+                padding: 12px;
+            }
+            
+            .amulet-rune-symbol {
+                font-size: 2rem;
             }
         }
     </style>
@@ -1407,6 +1674,48 @@
                 <table class="alphabet-table" id="alphabetTable">
                     <!-- Таблица будет заполнена через JavaScript -->
                 </table>
+            </div>
+        </section>
+        
+        <!-- Новый раздел для создания амулета -->
+        <section class="amulet-section">
+            <h2>Создание рунического амулета</h2>
+            <p>Опишите свои желания и намерения, и мы подберем для вас подходящую руническую формулу для создания амулета, оберега или браслета.</p>
+            
+            <div class="amulet-desires">
+                <textarea class="amulet-textarea" id="amuletDesires" placeholder="Например: деньги, богатство, удача, вдохновение в творчестве, избавление от долгов, семейное счастье, здоровье..."></textarea>
+                
+                <div class="amulet-options">
+                    <div class="amulet-option active" id="amuletOption1">1 Руна</div>
+                    <div class="amulet-option" id="amuletOption2">2 Руны</div>
+                    <div class="amulet-option" id="amuletOption3">3 Руны</div>
+                    <div class="amulet-option" id="amuletOption4">4 Руны</div>
+                    <div class="amulet-option" id="amuletOption5">5 Рун</div>
+                </div>
+                
+                <button class="cast-btn" id="createAmulet">Создать амулет</button>
+            </div>
+            
+            <div class="amulet-result" id="amuletResult">
+                <h2>Ваш рунический амулет</h2>
+                
+                <div class="amulet-formula" id="amuletFormula">
+                    <!-- Выбранные руны для амулета будут добавлены через JavaScript -->
+                </div>
+                
+                <div class="amulet-description" id="amuletDescription">
+                    <!-- Описание амулета будет добавлено через JavaScript -->
+                </div>
+                
+                <h3 class="amulet-section-title">Оговор для амулета</h3>
+                <div class="amulet-advice" id="amuletInvocation">
+                    <!-- Текст оговора будет добавлен через JavaScript -->
+                </div>
+                
+                <h3 class="amulet-section-title">Активация амулета</h3>
+                <div class="amulet-activation" id="amuletActivation">
+                    <!-- Инструкции по активации будут добавлены через JavaScript -->
+                </div>
             </div>
         </section>
         
@@ -1700,6 +2009,204 @@
             '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'
         };
 
+        // База данных готовых формул для разных ситуаций
+        const amuletFormulas = {
+            // Формулы из 1 руны
+            "1": [
+                {
+                    name: "Богатство и процветание",
+                    runes: ["Fehu"],
+                    description: "Формула привлечения материального благополучия и финансового успеха",
+                    situation: "деньги богатство финансы успех процветание",
+                    invocation: "Руна Феу, принеси в мою жизнь изобилие и финансовое благополучие!"
+                },
+                {
+                    name: "Здоровье и сила",
+                    runes: ["Uruz"],
+                    description: "Формула укрепления здоровья, жизненных сил и выносливости",
+                    situation: "здоровье сила энергия выносливость восстановление",
+                    invocation: "Руна Уруз, наполни мое тело жизненной силой и здоровьем!"
+                },
+                {
+                    name: "Защита от врагов",
+                    runes: ["Algiz"],
+                    description: "Формула создания защитного барьера от негативных влияний и врагов",
+                    situation: "защита безопасность оборона враги негатив",
+                    invocation: "Руна Альгиз, окружи меня защитным щитом от любого вреда!"
+                },
+                {
+                    name: "Любовь и гармония",
+                    runes: ["Gebo"],
+                    description: "Формула привлечения любви и гармоничных отношений",
+                    situation: "любовь отношения гармония партнерство семья",
+                    invocation: "Руна Гебо, принеси в мою жизнь настоящую любовь и гармонию!"
+                },
+                {
+                    name: "Удача и успех",
+                    runes: ["Sowilo"],
+                    description: "Формула привлечения удачи и успеха в начинаниях",
+                    situation: "удача успех победа достижения карьера",
+                    invocation: "Руна Соуло, освети мой путь к успеху и победе!"
+                }
+            ],
+            
+            // Формулы из 2 рун
+            "2": [
+                {
+                    name: "Денежный поток",
+                    runes: ["Fehu", "Jera"],
+                    description: "Формула для привлечения постоянного денежного потока и финансовой стабильности",
+                    situation: "деньги доход финансы стабильность бизнес",
+                    invocation: "Феу и Йера, создайте непрерывный поток изобилия в моей жизни!"
+                },
+                {
+                    name: "Защита дома",
+                    runes: ["Algiz", "Othala"],
+                    description: "Формула для защиты дома и семьи от негативных влияний",
+                    situation: "дом семья защита безопасность жилье",
+                    invocation: "Альгиз и Отала, защитите мой дом и семью от любого зла!"
+                },
+                {
+                    name: "Любовные отношения",
+                    runes: ["Gebo", "Wunjo"],
+                    description: "Формула для укрепления любовных отношений и семейного счастья",
+                    situation: "любовь отношения семья гармония счастье",
+                    invocation: "Гебо и Вуньо, наполните наши отношения любовью и радостью!"
+                },
+                {
+                    name: "Карьерный рост",
+                    runes: ["Ansuz", "Tiwaz"],
+                    description: "Формула для продвижения по карьерной лестнице и успеха в работе",
+                    situation: "карьера работа успех продвижение бизнес",
+                    invocation: "Ансуз и Тейваз, откройте мне пути к карьерному успеху!"
+                },
+                {
+                    name: "Творческое вдохновение",
+                    runes: ["Kenaz", "Ansuz"],
+                    description: "Формула для пробуждения творческих способностей и вдохновения",
+                    situation: "творчество вдохновение искусство идеи креативность",
+                    invocation: "Кеназ и Ансуз, зажгите во мне огонь творчества и вдохновения!"
+                }
+            ],
+            
+            // Формулы из 3 рун
+            "3": [
+                {
+                    name: "Процветание и изобилие",
+                    runes: ["Fehu", "Jera", "Ingwaz"],
+                    description: "Мощная формула для привлечения богатства, изобилия и процветания во всех сферах жизни",
+                    situation: "богатство деньги изобилие процветание успех финансы",
+                    invocation: "Феу, Йера и Ингуз, принесите в мою жизнь полное изобилие и процветание!"
+                },
+                {
+                    name: "Исцеление и восстановление",
+                    runes: ["Uruz", "Sowilo", "Berkana"],
+                    description: "Формула для исцеления тела и души, восстановления энергии и жизненных сил",
+                    situation: "здоровье исцеление восстановление энергия силы болезнь",
+                    invocation: "Уруз, Соуло и Беркана, исцелите мое тело и наполните жизненной силой!"
+                },
+                {
+                    name: "Защита от любого зла",
+                    runes: ["Algiz", "Thurisaz", "Eihwaz"],
+                    description: "Мощная защитная формула, оберегающая от физической и энергетической угрозы",
+                    situation: "защита безопасность оборона враги сглаз порча",
+                    invocation: "Альгиз, Турисаз и Эйваз, станьте щитом от любого зла и опасности!"
+                },
+                {
+                    name: "Любовь и семья",
+                    runes: ["Gebo", "Wunjo", "Othala"],
+                    description: "Формула для укрепления семейных уз, привлечения любви и гармонии в отношениях",
+                    situation: "любовь семья отношения гармония брак дети",
+                    invocation: "Гебо, Вуньо и Отала, укрепите наши семейные узы и наполните любовью!"
+                },
+                {
+                    name: "Успех в делах",
+                    runes: ["Ansuz", "Raidho", "Sowilo"],
+                    description: "Формула для достижения успеха в бизнесе, карьере и любых начинаниях",
+                    situation: "успех карьера бизнес достижения цели проект",
+                    invocation: "Ансуз, Райдо и Соуло, направьте меня к успеху в моих начинаниях!"
+                }
+            ],
+            
+            // Формулы из 4 рун
+            "4": [
+                {
+                    name: "Финансовый прорыв",
+                    runes: ["Fehu", "Jera", "Sowilo", "Dagaz"],
+                    description: "Мощная формула для кардинального улучшения финансового положения и прорыва в доходах",
+                    situation: "деньги финансы богатство прорыв доход бизнес",
+                    invocation: "Феу, Йера, Соуло и Дагаз, создайте финансовый прорыв в моей жизни!"
+                },
+                {
+                    name: "Полная защита",
+                    runes: ["Algiz", "Thurisaz", "Eihwaz", "Isa"],
+                    description: "Комплексная защита от всех видов негатива - от сглаза до физической угрозы",
+                    situation: "защита безопасность оборона враги негатив порча сглаз",
+                    invocation: "Альгиз, Турисаз, Эйваз и Иса, окружите меня непробиваемой защитой!"
+                },
+                {
+                    name: "Семейное счастье",
+                    runes: ["Gebo", "Wunjo", "Berkana", "Othala"],
+                    description: "Формула для создания гармоничной семьи, полной любви, понимания и счастья",
+                    situation: "семья любовь дети гармония счастье дом",
+                    invocation: "Гебо, Вуньо, Беркана и Отала, наполните наш дом любовью и счастьем!"
+                },
+                {
+                    name: "Карьерный взлет",
+                    runes: ["Ansuz", "Raidho", "Tiwaz", "Sowilo"],
+                    description: "Формула для стремительного карьерного роста, признания и профессионального успеха",
+                    situation: "карьера работа успех продвижение признание должность",
+                    invocation: "Ансуз, Райдо, Тейваз и Соуло, откройте мне путь к карьерному взлету!"
+                },
+                {
+                    name: "Творческая реализация",
+                    runes: ["Kenaz", "Ansuz", "Laguz", "Dagaz"],
+                    description: "Формула для раскрытия творческого потенциала и успешной реализации в искусстве",
+                    situation: "творчество вдохновение искусство реализация талант проект",
+                    invocation: "Кеназ, Ансуз, Лагуз и Дагаз, откройте во мне источник творчества и вдохновения!"
+                }
+            ],
+            
+            // Формулы из 5 рун
+            "5": [
+                {
+                    name: "Абсолютное изобилие",
+                    runes: ["Fehu", "Jera", "Ingwaz", "Othala", "Sowilo"],
+                    description: "Мощнейшая формула для привлечения изобилия во всех сферах жизни - финансовой, духовной, эмоциональной",
+                    situation: "богатство изобилие деньги успех процветание благополучие",
+                    invocation: "Феу, Йера, Ингуз, Отала и Соуло, наполните мою жизнь абсолютным изобилием!"
+                },
+                {
+                    name: "Неприкосновенность и защита",
+                    runes: ["Algiz", "Thurisaz", "Eihwaz", "Isa", "Othala"],
+                    description: "Максимальная защита человека, его семьи, дома и имущества от любых угроз",
+                    situation: "защита безопасность семья дом имущество неприкосновенность",
+                    invocation: "Альгиз, Турисаз, Эйваз, Иса и Отала, сделайте меня и мою семью неприкосновенными!"
+                },
+                {
+                    name: "Гармония и счастье",
+                    runes: ["Gebo", "Wunjo", "Berkana", "Othala", "Sowilo"],
+                    description: "Формула для создания идеальной гармонии в семье, отношениях и достижения полного счастья",
+                    situation: "семья любовь гармония счастье дети отношения",
+                    invocation: "Гебо, Вуньо, Беркана, Отала и Соуло, создайте в моей жизни полную гармонию и счастье!"
+                },
+                {
+                    name: "Путь к вершине",
+                    runes: ["Ansuz", "Raidho", "Tiwaz", "Sowilo", "Dagaz"],
+                    description: "Формула для достижения вершин в карьере, бизнесе и общественном признании",
+                    situation: "карьера успех бизнес признание слава вершина",
+                    invocation: "Ансуз, Райдо, Тейваз, Соуло и Дагаз, проведите меня к вершине успеха!"
+                },
+                {
+                    name: "Духовное пробуждение",
+                    runes: ["Ansuz", "Perthro", "Mannaz", "Laguz", "Dagaz"],
+                    description: "Формула для духовного развития, пробуждения сознания и обретения мудрости",
+                    situation: "духовность развитие мудрость познание осознание медитация",
+                    invocation: "Ансуз, Перто, Манназ, Лагуз и Дагаз, откройте мне путь к духовному пробуждению!"
+                }
+            ]
+        };
+
         // Элементы DOM
         const firstAtt = document.getElementById('firstAtt');
         const secondAtt = document.getElementById('secondAtt');
@@ -1746,9 +2253,24 @@
         const outputLabel = document.getElementById('outputLabel');
         const alphabetTable = document.getElementById('alphabetTable');
 
+        // Элементы для создания амулета
+        const amuletDesires = document.getElementById('amuletDesires');
+        const amuletOption1 = document.getElementById('amuletOption1');
+        const amuletOption2 = document.getElementById('amuletOption2');
+        const amuletOption3 = document.getElementById('amuletOption3');
+        const amuletOption4 = document.getElementById('amuletOption4');
+        const amuletOption5 = document.getElementById('amuletOption5');
+        const createAmuletBtn = document.getElementById('createAmulet');
+        const amuletResult = document.getElementById('amuletResult');
+        const amuletFormula = document.getElementById('amuletFormula');
+        const amuletDescription = document.getElementById('amuletDescription');
+        const amuletInvocation = document.getElementById('amuletInvocation');
+        const amuletActivation = document.getElementById('amuletActivation');
+
         // Переменные состояния
         let selectedLayout = 1; // 1, 3 или 4 (предназначение)
         let translationDirection = 'toRunes'; // 'toRunes' или 'fromRunes'
+        let selectedAmuletLength = 1;
 
         // Инициализация - отображение рун по аттам
         function initializeRunesGrid() {
@@ -1966,6 +2488,221 @@
                 console.error('Ошибка вставки: ', err);
                 return '';
             }
+        }
+
+        // Функция для получения руны по имени
+        function getRuneByName(name) {
+            return runesData.find(rune => rune.name === name);
+        }
+
+        // Функция для поиска подходящих формул по ключевым словам
+        function findMatchingFormulas(desiresText, length) {
+            const keywords = desiresText.toLowerCase().split(/[,\s]+/);
+            const formulas = amuletFormulas[length] || [];
+            
+            // Создаем массив для хранения подходящих формул с рейтингом соответствия
+            const matchedFormulas = formulas.map(formula => {
+                let score = 0;
+                keywords.forEach(keyword => {
+                    if (formula.situation.includes(keyword)) {
+                        score += 1;
+                    }
+                });
+                return { formula, score };
+            }).filter(item => item.score > 0);
+            
+            // Сортируем по рейтингу (по убыванию)
+            matchedFormulas.sort((a, b) => b.score - a.score);
+            
+            // Возвращаем только формулы (без рейтинга)
+            return matchedFormulas.map(item => item.formula);
+        }
+
+        // Функция для отображения формул амулета
+        function displayAmuletFormulas(formulas) {
+            amuletFormula.innerHTML = '';
+            
+            if (formulas.length === 0) {
+                amuletFormula.innerHTML = '<p>Не найдено подходящих формул для вашего запроса. Попробуйте изменить описание желаний.</p>';
+                return;
+            }
+            
+            formulas.forEach((formula, index) => {
+                const formulaCard = document.createElement('div');
+                formulaCard.className = 'amulet-option-card';
+                formulaCard.dataset.formulaIndex = index;
+                
+                const runesHTML = formula.runes.map(runeName => {
+                    const rune = getRuneByName(runeName);
+                    return `<div class="amulet-option-rune">${rune.symbol}</div>`;
+                }).join('');
+                
+                formulaCard.innerHTML = `
+                    <div class="amulet-option-title">${formula.name}</div>
+                    <div class="amulet-option-runes">${runesHTML}</div>
+                    <div class="amulet-option-description">${formula.description}</div>
+                `;
+                
+                formulaCard.addEventListener('click', () => {
+                    document.querySelectorAll('.amulet-option-card').forEach(card => {
+                        card.classList.remove('selected');
+                    });
+                    formulaCard.classList.add('selected');
+                    displaySelectedAmulet(formula);
+                });
+                
+                amuletFormula.appendChild(formulaCard);
+            });
+            
+            // Выбираем первую формулу по умолчанию
+            if (formulas.length > 0) {
+                const firstCard = amuletFormula.querySelector('.amulet-option-card');
+                if (firstCard) {
+                    firstCard.classList.add('selected');
+                    displaySelectedAmulet(formulas[0]);
+                }
+            }
+        }
+
+        // Функция для отображения выбранного амулета
+        function displaySelectedAmulet(formula) {
+            const runes = formula.runes.map(runeName => getRuneByName(runeName));
+            
+            // Отображаем руны амулета
+            amuletFormula.innerHTML = '';
+            
+            runes.forEach(rune => {
+                const runeElement = document.createElement('div');
+                runeElement.className = 'amulet-rune';
+                runeElement.innerHTML = `
+                    <div class="amulet-rune-symbol">${rune.symbol}</div>
+                    <div class="amulet-rune-name">${rune.name}</div>
+                `;
+                amuletFormula.appendChild(runeElement);
+            });
+            
+            // Генерируем описание амулета
+            generateAmuletDescription(runes, formula);
+            
+            // Генерируем оговор для амулета
+            generateAmuletInvocation(runes, formula);
+            
+            // Генерируем инструкции по активации
+            generateAmuletActivation(runes);
+        }
+
+        // Функция для генерации описания амулета
+        function generateAmuletDescription(runes, formula) {
+            let description = `<p><strong>Название формулы:</strong> ${formula.name}</p>`;
+            description += `<p><strong>Руническая формула:</strong> ${formula.runes.join(' + ')}</p>`;
+            description += `<p><strong>Стихии:</strong> ${runes.map(r => r.element).join(', ')}</p>`;
+            description += `<p><strong>Назначение амулета:</strong> ${formula.description}</p>`;
+            description += `<p><strong>Значение рун в формуле:</strong></p><ul>`;
+            
+            runes.forEach(rune => {
+                description += `<li><strong>${rune.name}</strong>: ${rune.meaning}</li>`;
+            });
+            
+            description += `</ul>`;
+            description += `<p>Руны в этой формуле работают синергетически, усиливая действие друг друга и создавая мощный энергетический поток, направленный на реализацию ваших намерений.</p>`;
+            
+            amuletDescription.innerHTML = description;
+        }
+
+        // Функция для генерации оговора для амулета
+        function generateAmuletInvocation(runes, formula) {
+            const runeNames = runes.map(r => r.name).join(', ');
+            const desiresText = amuletDesires.value || "моих намерений";
+            
+            let invocation = formula.invocation;
+            
+            // Если у формулы есть свой оговор, используем его
+            if (!invocation) {
+                invocation = `"Силы рун ${runeNames}, призываю вас в этот амулет! Наполните его своей энергией и мудростью. Пусть этот оберег станет проводником моих желаний: ${desiresText}. Да будет так, как я задумал(а), без вреда для кого-либо и во благо всем. Во имя Одина, Фрейи и всех богов Асгарда, я активирую этот амулет!"`;
+            }
+            
+            amuletInvocation.innerHTML = invocation;
+        }
+
+        // Функция для генерации инструкций по активации
+        function generateAmuletActivation(runes) {
+            const elements = [...new Set(runes.map(r => r.element))];
+            let activationMethod = '';
+            
+            if (elements.includes('Огонь')) {
+                activationMethod = `
+                    <p><strong>Активация огнем:</strong> Проведите амулет над пламенем свечи (будьте осторожны!), визуализируя, как огонь наполняет его энергией. Можно использовать красную или золотую свечу.</p>
+                `;
+            } else if (elements.includes('Вода')) {
+                activationMethod = `
+                    <p><strong>Активация водой:</strong> Окуните амулет в чистую родниковую воду или окропите его, представляя, как вода очищает и заряжает его. Можно добавить в воду немного морской соли для усиления эффекта.</p>
+                `;
+            } else if (elements.includes('Земля')) {
+                activationMethod = `
+                    <p><strong>Активация землей:</strong> Заверните амулет в натуральную ткань и закопайте в землю на сутки. После этого достаньте его и очистите от земли - он будет заряжен энергией Земли.</p>
+                `;
+            } else if (elements.includes('Воздух')) {
+                activationMethod = `
+                    <p><strong>Активация воздухом:</strong> Положите амулет на открытом воздухе в ветреный день или подуйте на него, представляя, как ветер наполняет его силой.</p>
+                `;
+            } else {
+                activationMethod = `
+                    <p><strong>Активация дыханием:</strong> Держа амулет в руках, сделайте глубокий вдох, а на выдохе направьте свое дыхание на него, представляя, как ваша жизненная энергия наполняет амулет.</p>
+                `;
+            }
+            
+            const activationHTML = `
+                <p><strong>Рекомендации по созданию и использованию амулета:</strong></p>
+                <ol>
+                    <li>Выберите материал для амулета (дерево, камень, металл), который резонирует с вашей энергией.</li>
+                    <li>Нанесите руны на выбранный материал в правильном порядке: ${runes.map(r => r.name).join(' → ')}.</li>
+                    <li>Проведите ритуал активации в спокойной обстановке, когда вас никто не побеспокоит.</li>
+                    <li>Произнесите оговор (текст выше) с полной концентрацией на своих намерениях.</li>
+                    <li>${activationMethod}</li>
+                    <li>Носите амулет при себе или разместите в соответствующем месте (например, финансовый амулет - в кошельке, защитный - у входа в дом).</li>
+                    <li>Перезаряжайте амулет каждые 28 дней (лунный цикл) или когда почувствуете, что его энергия ослабла.</li>
+                </ol>
+                <p><em>Помните: сила амулета зависит не только от рун, но и от вашей веры в его действие и чистоты ваших намерений.</em></p>
+            `;
+            
+            amuletActivation.innerHTML = activationHTML;
+        }
+
+        // Функция для создания амулета
+        function createAmulet() {
+            const desiresText = amuletDesires.value.trim();
+            
+            if (!desiresText) {
+                alert("Пожалуйста, опишите ваши желания и намерения");
+                return;
+            }
+            
+            // Ищем подходящие формулы
+            const matchedFormulas = findMatchingFormulas(desiresText, selectedAmuletLength.toString());
+            
+            // Если не найдено подходящих формул, берем случайные из базы
+            let formulasToShow = matchedFormulas;
+            if (matchedFormulas.length === 0) {
+                const allFormulas = amuletFormulas[selectedAmuletLength.toString()] || [];
+                // Берем первые 3 формулы или все, если меньше
+                formulasToShow = allFormulas.slice(0, Math.min(3, allFormulas.length));
+            }
+            
+            // Отображаем результат
+            displayAmuletFormulas(formulasToShow);
+            amuletResult.style.display = 'block';
+            
+            // Прокручиваем к результатам
+            amuletResult.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Функция для обновления активных опций амулета
+        function updateAmuletOptions() {
+            amuletOption1.classList.toggle('active', selectedAmuletLength === 1);
+            amuletOption2.classList.toggle('active', selectedAmuletLength === 2);
+            amuletOption3.classList.toggle('active', selectedAmuletLength === 3);
+            amuletOption4.classList.toggle('active', selectedAmuletLength === 4);
+            amuletOption5.classList.toggle('active', selectedAmuletLength === 5);
         }
 
         // Обработчики событий для выбора расклада
@@ -2329,6 +3066,38 @@
                     runeModal.style.display = 'none';
                 }
             });
+            
+            // Инициализация для создания амулета
+            createAmuletBtn.addEventListener('click', createAmulet);
+            
+            // Обработчики для выбора количества рун в амулете
+            amuletOption1.addEventListener('click', () => {
+                selectedAmuletLength = 1;
+                updateAmuletOptions();
+            });
+            
+            amuletOption2.addEventListener('click', () => {
+                selectedAmuletLength = 2;
+                updateAmuletOptions();
+            });
+            
+            amuletOption3.addEventListener('click', () => {
+                selectedAmuletLength = 3;
+                updateAmuletOptions();
+            });
+            
+            amuletOption4.addEventListener('click', () => {
+                selectedAmuletLength = 4;
+                updateAmuletOptions();
+            });
+            
+            amuletOption5.addEventListener('click', () => {
+                selectedAmuletLength = 5;
+                updateAmuletOptions();
+            });
+            
+            // Инициализация выбора количества рун
+            updateAmuletOptions();
         });
     </script>
 </body>
